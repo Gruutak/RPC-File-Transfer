@@ -13,10 +13,7 @@ transfer_1(char *host, char *filetotransf)
 	CLIENT *clnt;
 	int  *result_1;
 	file  transf_1_arg;
-	int bytes;
-	char data[MAXLEN];
 	FILE *ofile;
-	char tempname[MAXLEN];
 	long long int total = 0;
 
 	clnt = clnt_create (host, TRANSFER, TRANSFER_1, "tcp");
