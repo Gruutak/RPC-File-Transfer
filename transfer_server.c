@@ -8,7 +8,6 @@
 
 char opened_file[MAXLEN];
 FILE *ofile;
-int counter = 0;
 long long int total = 0;
 
 int *
@@ -21,11 +20,12 @@ transf_1_svc(file *argp, struct svc_req *rqstp)
 	 * insert server code here
 	 */
 
+	/*
 	strcpy(tempName, "uploaded_");
 	strcat(tempName, argp->name);
 	strcpy(argp->name, tempName);
+	*/
 
-	counter++;
 	total += argp->nbytes;
 
 	if (strcmp(opened_file, "") == 0 && ofile == NULL) {
@@ -43,7 +43,6 @@ transf_1_svc(file *argp, struct svc_req *rqstp)
 		if (argp->nbytes < MAXLEN) {
 			printf("\nFinished receiving %s.\n", argp->name);
 			total = 0;
-			counter = 0;
 			fclose(ofile);
 			ofile = NULL;
 			strcpy(opened_file, "");

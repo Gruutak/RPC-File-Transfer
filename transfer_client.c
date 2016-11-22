@@ -17,7 +17,6 @@ transfer_1(char *host, char *filetotransf)
 	char data[MAXLEN];
 	FILE *ofile;
 	char tempname[MAXLEN];
-	int counter = 0;
 	long long int total = 0;
 
 	clnt = clnt_create (host, TRANSFER, TRANSFER_1, "tcp");
@@ -44,7 +43,6 @@ transfer_1(char *host, char *filetotransf)
 		printf("\r%lld bytes of %s sent to server.", total, transf_1_arg.name);
 
 		result_1 = transf_1(&transf_1_arg, clnt);
-		counter++;
 
 		if (result_1 == (int *) NULL) {
 			clnt_perror (clnt, "call failed");
@@ -52,7 +50,6 @@ transfer_1(char *host, char *filetotransf)
 
 		if(transf_1_arg.nbytes < MAXLEN) {
 			printf("\nUpload finished.\n");
-			printf("%d messages were sent.\n", counter);
 			break;
 		}
 	}
