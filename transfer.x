@@ -1,4 +1,4 @@
-const MAXLEN = 102400;
+const MAXLEN = 262144;
 
 typedef opaque filebytes[MAXLEN];
 

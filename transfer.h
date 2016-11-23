@@ -13,7 +13,7 @@
 extern "C" {
 #endif
 
-#define MAXLEN 102400
+#define MAXLEN 262144
 
 typedef char filebytes[MAXLEN];
 
