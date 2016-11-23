@@ -5,6 +5,7 @@
  */
 
 #include "transfer.h"
+#include <time.h>
 
 
 void
@@ -33,6 +34,8 @@ transfer_1(char *host, char *filetotransf)
 
 	strcpy(transf_1_arg.name, filetotransf);
 
+	clock_t begin = clock();
+
 	while(1) {
 		transf_1_arg.nbytes = fread(transf_1_arg.data, 1, MAXLEN, ofile);
 		total += transf_1_arg.nbytes;
@@ -50,6 +53,11 @@ transfer_1(char *host, char *filetotransf)
 			break;
 		}
 	}
+
+	clock_t end = clock();
+	double upload_time = (double)(end - begin) / CLOCKS_PER_SEC;
+
+	printf("Upload time: %lf\n", upload_time);
 
 	clnt_destroy (clnt);
 	fclose(ofile);
