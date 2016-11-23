@@ -40,7 +40,7 @@ transfer_1(char *host, char *filetotransf)
 		transf_1_arg.nbytes = fread(transf_1_arg.data, 1, MAXLEN, ofile);
 		total += transf_1_arg.nbytes;
 
-		printf("\r%lld bytes of %s sent to server.", total, transf_1_arg.name);
+		//printf("\r%lld bytes of %s sent to server.", total, transf_1_arg.name);
 
 		result_1 = transf_1(&transf_1_arg, clnt);
 

@@ -35,7 +35,7 @@ transf_1_svc(file *argp, struct svc_req *rqstp)
 		ofile = fopen(argp->name, "ab+");
 	}
 	if (strcmp(opened_file, argp->name) == 0) {
-		printf("\r%lld bytes of file %s were received.", total, argp->name);
+		//printf("\r%lld bytes of file %s were received.", total, argp->name);
 		fflush(stdout);
 
 		fwrite(argp->data, 1, argp->nbytes, ofile);
