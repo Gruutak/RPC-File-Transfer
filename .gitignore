@@ -2,3 +2,5 @@ transfer_client
 transfer_server
 arquivostest/
 *.o
+*MB
+*GB
